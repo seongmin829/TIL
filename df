@@ -1,0 +1,71 @@
+[33mcommit 48db9d9d24ae5f337831d51fd4f9a2950a3ce9db[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: seongmin829 <seong_min829@naver.com>
+Date:   Sat Feb 1 09:19:12 2020 +0900
+
+    이미지 분석 실무 - 표정인식(감정)
+
+[33mcommit 44429425c9c48354d145d4a1b7e165004fd4b82f[m
+Author: seongmin829 <seong_min829@naver.com>
+Date:   Sat Feb 1 09:18:02 2020 +0900
+
+    이미지 분석 실무 - yolo with putty
+
+[33mcommit af08cddc5a6803298c2e8b17a7e3fa5ee4b437f4[m
+Author: seongmin829 <seong_min829@naver.com>
+Date:   Sat Feb 1 09:17:02 2020 +0900
+
+    이미지 분석 실무 - haarlike 외 얼굴 인식
+
+[33mcommit 3a6473c2f62968811bff091768c1494a31718c5c[m
+Author: seongmin829 <seong_min829@naver.com>
+Date:   Sat Feb 1 09:15:30 2020 +0900
+
+    이미지 분석 실무 - 사람 검출
+
+[33mcommit cdd69f9f311f6233c695c7c4380593d0410e4701[m
+Author: seongmin829 <seong_min829@naver.com>
+Date:   Sat Feb 1 09:14:46 2020 +0900
+
+    이미지 분석 실무 - 얼굴 검출
+
+[33mcommit 78578950666f2737c676461c14316ef8720e5c36[m
+Author: seongmin829 <seong_min829@naver.com>
+Date:   Sat Feb 1 09:13:19 2020 +0900
+
+    MR_CNN, OpenPose
+
+[33mcommit 926ae3526bc6e57afac1ebc60ef1ec3dac7b676e[m
+Author: seongmin829 <seong_min829@naver.com>
+Date:   Sat Feb 1 09:11:30 2020 +0900
+
+    smallcatdog dataset
+
+[33mcommit e561c5c20895ed0f5e95293a7371f6872b0e2477[m
+Author: seongmin829 <seong_min829@naver.com>
+Date:   Sat Feb 1 09:10:19 2020 +0900
+
+    shape dataset
+
+[33mcommit 4a240022f50d5a13ff7a607dda756853bc006c50[m
+Author: seongmin829 <seong_min829@naver.com>
+Date:   Sat Feb 1 09:09:37 2020 +0900
+
+    clean-dataset
+
+[33mcommit 59a15c2771295d856f5f568b66293af4d28ded38[m
+Author: seongmin829 <seong_min829@naver.com>
+Date:   Sat Feb 1 09:08:56 2020 +0900
+
+    augmentation_img
+
+[33mcommit 3e6c9414bfb190b664dc4c1725a07d51307db3db[m
+Author: seongmin829 <seong_min829@naver.com>
+Date:   Sat Feb 1 09:07:57 2020 +0900
+
+    start deep learning
+
+[33mcommit 552638205b397705597aa65353ba82a4fc056275[m
+Author: seongmin829 <seong_min829@naver.com>
+Date:   Sat Feb 1 09:04:52 2020 +0900
+
+    git basic
