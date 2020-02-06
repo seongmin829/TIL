@@ -496,6 +496,7 @@ while True:
         price = {"짜장" : 5000, "짬뽕" : 10000, "탕수육" : 20000}
         params = dict['result']['parameters']['food_number']
         
+        # 만약 입력을 '짜장, 짬뽕2' 이렇게 했을 때는 number-interger에 값이 없기 때문에 1을 넘겨주도록 get("number-integer", 1) 이렇게 작성한다.
         output = [food.get("number-integer", 1)*price[food["food"]] for food in params]
         
         print(sum(output))
