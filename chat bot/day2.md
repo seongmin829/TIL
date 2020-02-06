@@ -193,7 +193,7 @@ https://search.naver.com/search.naver?query=%EB%B6%80%EC%82%B0%EB%82%A0%EC%94%A8
 
 
 
-## 챗봇에 날씨 정보 출력하기
+## 날씨 정보 출력하기
 
 * header
 
@@ -794,3 +794,9 @@ def home():
 7. fulfillment를 설정해 둔 intent에 맞는 text를 입력했을 때 response text가 반환되지 않고 server.py 에서 return 한 json data 가 return 된다. 
 
 8. 만약 server 가 꺼져 있는 상황이라면 dialogflow는 일정시간동안 계속 기다렸다가 intent 에 있는 response text를 출력한다.
+
+
+
+* agent 별로 하나의 Fulfillment 주소에 연결할 수 있다. 
+  * 즉 intent 별로 다른 주소에 연결하는 것이 아니라 하나의 서버에서 intent 별로 다른 작동을 하게 만들어야 한다.
+
