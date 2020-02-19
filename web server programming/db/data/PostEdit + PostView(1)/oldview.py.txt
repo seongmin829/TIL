@@ -1,0 +1,109 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+from blog.models import Post
+from django.shortcuts import get_object_or_404
+from django.views.generic import View
+from django.shortcuts import redirect
+# LoginView
+from django.contrib.auth import authenticate
+# list
+from django.contrib.auth.models import User
+# PostForm
+from django.forms import Form
+# PostForm
+from django.forms import CharField, Textarea
+from django.forms import ValidationError
+
+
+# Create your views here.
+
+def index(request):
+    return HttpResponse("ok")
+
+def index2(request, name):
+    return HttpResponse("ok " + name)
+
+def index3(request, pk):
+    #p = Post.objects.get(pk=pk)
+    p = get_object_or_404(Post, pk=pk)
+    return HttpResponse(p)
+
+def list(request):
+
+    username = request.session["username"]
+    user = User.objects.get(username=username)
+    data = Post.objects.all().filter(author=user)
+    context = {"data":data, "username" : username}
+    return render(request, "blog/list.html", context)
+
+def detail(request, pk):
+    p = get_object_or_404(Post, pk=pk)
+    return render(request, "blog/detail.html", {"d": p})
+
+
+class LoginView(View):
+    
+    def get(self, request):
+        return render(request, "blog/login.html")
+
+    def post(self, request):
+        #loging처리
+
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        # id 또는 password 에 틀린 값을 넣으면 None 이 return 된다.
+        # password 에는 암호화 되기 전의 password 입력한다.
+        user = authenticate(username=username, password=password)
+
+        if user == None:
+                # 상대 경로로 지정을 해주려면 urls.py 에 name 을 지정해주고 그 name 을 redirect 에서 호출해야 된다.
+                return redirect("login")
+        request.session["username"] = username
+        return redirect("list")
+
+class PostView(View):
+    
+    def get(self, request):
+        return render(request, "blog/edit.html")
+
+    def post(self, request):
+        
+        title = request.POST.get("title")
+        text = request.POST.get("text")
+        username = request.session["username"]
+        user = User.objects.get(username=username)
+
+        Post.objects.create(title=title, text=text, author=user)
+
+        return redirect("list")
+
+class PostEditView(View):
+    def get(self, request, pk):
+
+        post = get_object_or_404(Post, pk=pk)
+        form = PostForm(initial={"title": post.title, "text": post.text})
+        return render(request, "blog/edit.html", {"form":form, "pk":pk})
+
+    def post(self, request, pk):
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = get_object_or_404(Post, pk=pk)
+            post.title = form['title'].value()
+            post.text = form['text'].value()
+            # 변경된 정보 db에 적용
+            post.publish()
+            return redirect("list")
+        return render(request, "blog/edit.html", {"form":form, "pk":pk})
+
+def validator(value):
+    if len(value) < 5 : raise ValidationError("길이가 너무 짧아요.");
+
+
+class PostForm(Form):
+    title = CharField(label="제목", max_length=20, validators=[validator])
+    # widget : default는 text 요소이다.
+    text = CharField(label="내용", widget=Textarea)
+
+
+

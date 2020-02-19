@@ -1,0 +1,6 @@
+get 요청
+
+0/list -> 리스트출력
+5/detail -> 5번 post 보여줌
+0/add -> 신규 데이터 작성 ->post 요청
+5/edit -> 5번 post 수정 ->post 요청

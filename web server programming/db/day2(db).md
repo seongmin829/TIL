@@ -816,3 +816,18 @@ urlpatterns = [
 
 ![d21](images/d21.png)
 
+
+
+#### PostEditView += PostView
+
+* 글 추가 기능과 글 수정 기능의 class 합친다.
+
+* 코드는 data 파일에 있다.
+
+
+
+#### 모듈화
+
+* 함수들을 모듈화 환다.
+  * `PostForm` 함수를 `forms.py`로 모듈화 한다.
+* 코드는 data 파일에 있다.
