@@ -82,7 +82,7 @@ def foo(a):
 
 ## 7. 이미지
 
-![image](C:\Users\SUNGMIN\Desktop\image.png)
+![aaaa](images/aaaa.png)
 
 위의 이미지는 절대 경로(c드라이버)로 작성되어 있기 때문에, 외부에 공개(github)하면 이미지가 깨져서 보인다.
 
