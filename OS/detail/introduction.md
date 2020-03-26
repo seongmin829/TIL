@@ -5,23 +5,24 @@
 
 # 2. Virtualization
 
-* `OS` is in charge of making sure the system operates correctly and efficiently in an easy-to-use manner. And does this through `virtualization`
-* `system call`
-  * allow user to tell the `OS` what to do
-* with help from the hardware achieve `virtualization`
-* handle problem with `policy(intelligence, for which question)` and `mechanisms(mechinery, for how question)`
+* **OS** is in charge of making sure the system operates correctly and efficiently in an easy-to-use manner. And does this through **virtualization**.
+* **system call**
+  * allow user to tell the **OS** what to do
+* with help from the hardware achieve **virtualization**
+* handle problem with **policy(intelligence, for which question)** and **mechanisms(mechinery, for how question)**
 
 ## Virtualizing The CPU
 
-* `virtualization` make illusion that the system has a vary large number of virtual CPUs.
+* **virtualization** make illusion that the system has a vary large number of virtual CPUs.
 
 ## Virtualizing Memory
 
-*  Every process accesses its own private virtual address space (sometimes just called its address space), which the `OS` somehow maps onto the physical memory of the machine.
-
+*  Every process accesses its own private virtual address space (sometimes just called its address space), which the **OS** somehow maps onto the physical memory of the machine.
 * The running program has physical memory all to itself which does not affect the address space of other processes (or the OS itself).
-* The code below shows that each process has their own memory, but in sight of virtual memory(address space) , same memory space(address) can be accessed by multiple processes.
-* code(`mem.c`)
+*  The code below shows that each process has their own physical memory. 
+   * Two processes could have access in same memory address because virtual memory(address space) address start in 0X00000000.
+   * Although two process access to same memory space(virtual memory space), each process own its physical memory,  two process access to different physical memory space.
+* code(**mem.c**)
 
 ```c
 #include <unistd.h>
@@ -69,7 +70,7 @@ prompt> ./mem &; ./mem &
     * Instruction is executed one at a time, but where the shared `counter` is incremented takes three instructions.
     *  Because these three instructions do not execute atomically (all at once), strange things can happen.
 
-* code(`thread.c`)
+* code(**thread.c**)
 
 ```c
 #include <stdio.h>
@@ -118,9 +119,9 @@ Final value : 137298
 
 # 4. Persistence
 
-* As devices such as DRAM store values in a `volatile` manner, we need hardware and software to be able to store data persistently
+* As devices such as DRAM store values in a **volatile** manner, we need hardware and software to be able to store data persistently
 
-* `file system`
-  * The software in the operating system that usually manages the disk is called the `file system`.
-  * `device driver`
-    * A `device driver` is some code in the operating system that knows how to deal with a specific device.
+* **file system**
+  * The software in the operating system that usually manages the disk is called the **file system**.
+  * **device driver**
+    * A **device driver** is some code in the operating system that knows how to deal with a specific device.
