@@ -31,14 +31,14 @@
   * **kernel mode**
     * In **kernel mode**, which the operating system (or kernel) runs in, code that runs can do what it likes, including privileged operations such as issuing I/O requests and executing all types of restricted instructions.
   * **system call**
-    * When **user process** wishes to perform some kind of privileged operation, **user process** use **system call**.
     * **System calls** allow the **kernel** to carefully expose certain key pieces of functionality to user programs.
     * To execute a **system call**, a program must execute a special **trap** instruction.
     *  When required work finished, the **OS** calls a special **return-from-trap** instruction, which returns into the calling **user program** while simultaneously reducing the privilege level back to user mode.
-  * **trap table**
+  * **trap handler**
+    * The **trap handler** is the code that will run when the **trap** is triggered.
     * When trap called, the calling process can’t **specify** an address to jump to.
     * The kernel set up a **trap table** at boot time in **kernel mode**.
-    * The **OS** informs hardware of locations of **trap handlers**(code what to run when certain exceptional events occur).
+    * The **OS** informs hardware of locations of **trap handlers**.
   *  **system call number**
     * To specify the exact **system call**, a **system-call number** is usually assigned to each **system call**.
     * The user code is thus responsible for placing the desired system-call number in a register or at a specified location on the stack.
@@ -67,7 +67,14 @@
     * When the interrupt is raised, the currently running process is halted, and a pre-configured **interrupt handler** in the OS runs.
   * context switch
     * When the decision is made  to switch currently-running process to soon-to-be-executing process, saving **context** of currently-running process and restoring **context** of soon-to-be-executing process is called **context switch**
+    * **saving & restoring context**
+      * When interrupt occurs, for example timer interrupt, first the **user registers** of the running process are implicitly saved by the hardware(**CPU**) to its kernel stack.
+      * Second, if **OS** decides to switch process, the kernel registers are explicitly saved by the software (i.e., the OS), into memory in the process structure of the process.
+
+![de3](images/de3.png)
 
 
 
 # 3. Concurrency problem
+
+* If one interrupt is being handled,  OS should disable interrupts.
